@@ -13,33 +13,6 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 ">
 
-    <context:component-scan base-package="edu.eci.cosw.samples.persistence"/>
-    <jpa:repositories base-package="edu.eci.cosw.samples.persistence"/>
- 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://desarrollo.is.escuelaing.edu.co/bdprueba"/>
-        <property name="username" value="bdprueba"/>
-        <property name="password" value="bdprueba"/>
-    </bean>
- 
-    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="showSql" value="true"/>
-        <property name="generateDdl" value="true"/>
-        <property name="database" value="MYSQL"/>
-    </bean>
- 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
-        <!-- spring based scanning for entity classes-->
-        <property name="packagesToScan" value="edu.eci.cosw.samples.model"/>
-    </bean>
- 
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
-    
-    <tx:annotation-driven transaction-manager="transactionManager" />
-    
-    
+    <context:component-scan base-package="edu.eci.cosw.services"/>
     
 </beans>
